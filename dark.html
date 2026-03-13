@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Jerry Developer</title>
+	<link rel="shortcut icon" href="../img/a2.svg" type="image/x-icon">
+	<link rel="stylesheet" href="../css/jerrydev_dark.css">
+</head>
+
+<body>
+	<main style="height: 100vh;">
+		<div id="logo">
+			<img src="../img/jerry.svg" alt="Logo Jerry" class="logo">
+		</div>
+
+		<h3><i>Seja bem-vindo!</i></h3>
+		<p><i>
+				Prazer meu nome é Jerry Leonardo e esse é o meu biosite, aqui você pode acessar meu portifólio e minhas
+				redes sociais.
+			</i></p>
+
+		<button id="themeBtn" class="button2">Tema</button>
+
+		<a href="https://jeh7sx.github.io/portfolio02/html/home.html" class="button" id="port">
+			<img src="../img/jerry.svg" id="email" alt="" class="normal" style="max-height: 3.8vh; margin-left: -2vh;">
+			<img src="../img/a2.svg" id="email" alt="" class="hover" style="max-height: 4vh; margin-left: -1vh; ">
+			<!-- <img src="../img/jerry_LogoFundo.svg" id="email" alt="" class="hover" style="max-height: 4vh; margin-left: -1vh; ">-->Portifólio | Em desenvolvimento
+		</a>
+
+		<a href="https://www.instagram.com/jeh7.sx/" class="button" target="_blank">
+			<img src="../img/Insta_icon.svg" alt="">@jeh7.sx
+		</a>
+
+		<!-- <a href="https://wa.me/5511988351400?text=Olá,%20bom%20dia%20tudo%20bem?%20me%20chamo%20__" class="button">
+			<img src="../img/Whats_icon.svg" alt="">(11) 98835-1400
+		</a> -->
+
+		<!-- <a href="mailto:jerryalves07@gmail.com" class="button">
+			<img src="../img/email_icon.svg" id="email" alt="">jerryalves07@gmail.com
+		</a> -->
+
+		<a href="https://github.com/jeh7sx" class="button">
+			<img src="../img/github-mark-white.svg" id="email" alt="">jeh7sx
+		</a>
+
+		<a href="https://www.linkedin.com/in/jerry-leonardo-773071263/" class="button">
+			<img src="../img/linkedin-svgrepo-com.svg" id="email" alt="">Jerry Leonardo
+		</a>
+
+		<div id="themeModal" class="modal">
+			<div class="modal-content">
+				<h3>Escolha um tema</h3>
+
+				<div class="themes">
+
+					<a href="index.html" class="theme-card" onclick="setTheme('default')">
+						<div class="preview preview-default"></div>
+						<p>Padrão</p>
+					</a>
+
+					<a href="dark.html" class="theme-card" onclick="setTheme('dark')">
+						<div class="preview preview-dark"></div>
+						<p>Escuro</p>
+					</a>
+
+					<a href="light.html" class="theme-card" onclick="setTheme('light')">
+						<div class="preview preview-light"></div>
+						<p>Claro</p>
+					</a>
+
+					<a href="monocromatico.html" class="theme-card" onclick="setTheme('mono')">
+						<div class="preview preview-mono"></div>
+						<p>Monocromático</p>
+					</a>
+
+				</div>
+
+				<!-- <button onclick="closeModal()">Fechar</button> -->
+			</div>
+		</div>
+
+	</main>
+
+	<footer style="height: 5vh;">
+		© Jerry Leonardo Alves Das Flores | 2026
+	</footer>
+<script>
+
+		const modal = document.getElementById("themeModal")
+		const btn = document.getElementById("themeBtn")
+
+		btn.onclick = () => modal.style.display = "flex"
+
+		function closeModal() {
+			modal.style.display = "none"
+		}
+
+		function setTheme(theme) {
+
+			document.body.classList.remove(
+				"theme-dark",
+				"theme-light",
+				"theme-mono"
+			)
+
+			if (theme === "dark")
+				document.body.classList.add("theme-dark")
+
+			if (theme === "light")
+				document.body.classList.add("theme-light")
+
+			if (theme === "mono")
+				document.body.classList.add("theme-mono")
+
+			localStorage.setItem("theme", theme)
+
+			closeModal()
+		}
+
+		const savedTheme = localStorage.getItem("theme")
+
+		if (savedTheme)
+			setTheme(savedTheme)
+
+	</script>
+</body>
+
+</html>
